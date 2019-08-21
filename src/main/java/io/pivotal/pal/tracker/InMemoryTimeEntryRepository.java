@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository
+//@Repository
 public class InMemoryTimeEntryRepository implements TimeEntryRepository {
 
     public List<TimeEntry> list = new ArrayList<>();
