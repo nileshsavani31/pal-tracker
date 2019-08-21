@@ -33,26 +33,16 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
        if(list == null || list.size() == 0)
             return null;
 
-        int id = 0;
+        TimeEntry obj = find(timeEntryId);
+        list.remove(obj.getId());
         timeEntry.setId(timeEntryId);
-        for (int i=0; i< list.size();i++){
-            if(list.get(i).getId() == timeEntryId){
-                id = i;
-                break;
-            }
-        }
-        list.add(id,timeEntry);
+        list.add(timeEntry);
         return timeEntry;
     }
 
     @Override
     public void delete(long timeEntryId) {
-        for (int i=0; i< list.size();i++){
-            if(list.get(i).getId() == timeEntryId){
-                list.remove(i);
-                break;
-            }
-        }
+        list.remove(find(timeEntryId));
     }
 
     @Override
