@@ -34,10 +34,10 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
             return null;
 
         TimeEntry obj = find(timeEntryId);
-        list.remove(obj.getId());
+        list.remove(obj);
         timeEntry.setId(timeEntryId);
         list.add(timeEntry);
-        return timeEntry;
+        return find(timeEntryId);
     }
 
     @Override
